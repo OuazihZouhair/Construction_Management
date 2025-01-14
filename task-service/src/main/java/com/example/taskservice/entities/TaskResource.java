@@ -1,6 +1,7 @@
 package com.example.taskservice.entities;
 
 import com.example.taskservice.model.Resource;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 
 @Entity
@@ -8,6 +9,7 @@ public class TaskResource {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @ManyToOne
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Task task;
     private Long resourceId;
     private Integer quantity;
@@ -22,6 +24,7 @@ public class TaskResource {
     public TaskResource(Long resourceId, Integer quantity, Task task) {
         this.resourceId = resourceId;
         this.quantity = quantity;
+        this.task = task;
     }
 
     public Long getId() {

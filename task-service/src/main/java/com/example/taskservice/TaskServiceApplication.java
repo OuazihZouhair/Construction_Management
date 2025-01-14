@@ -39,15 +39,19 @@ public class TaskServiceApplication {
             Collection<Resource> resources = resourceRestClient.getAllResources().getContent();
 
             projects.forEach(project -> {
+
                 String dateString1 = "2024-03-22";
                 String dateString2 = "2024-12-22";
                 LocalDate start = LocalDate.parse(dateString1);
                 LocalDate end = LocalDate.parse(dateString2);
+
                 Task task = new Task("Description1", start, end, Status.TO_DO, project.getId());
                 taskRepository.save(task);
 
                 resources.forEach(resource -> {
-                    TaskResource taskResource = new TaskResource(resource.getId(), 1 + new Random().nextInt(10), task);
+                    TaskResource taskResource = new TaskResource(resource.getId(),
+                            1 + new Random().nextInt(10),
+                            task);
                     taskResourceRepository.save(taskResource);
                 });
             });

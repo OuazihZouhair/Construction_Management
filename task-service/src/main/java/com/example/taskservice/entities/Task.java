@@ -85,4 +85,20 @@ public class Task {
     public void setStatus(Status status) {
         this.status = status;
     }
+
+    public List<TaskResource> getTaskResources() {
+        return taskResources;
+    }
+
+    public void setTaskResources(List<TaskResource> taskResources) {
+        this.taskResources = taskResources;
+    }
+
+    public Project getProject() {
+        return project;
+    }
+
+    public void setProject(Project project) {
+        this.project = project;
+    }
 }

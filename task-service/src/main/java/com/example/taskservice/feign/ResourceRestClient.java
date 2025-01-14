@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 public interface ResourceRestClient {
     @GetMapping("/resources/{id}")
     Resource getResourceById(@PathVariable Long id);
-
     @GetMapping("/resources")
     PagedModel<Resource> getAllResources();
 

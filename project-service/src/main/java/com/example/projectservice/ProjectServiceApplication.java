@@ -1,16 +1,19 @@
 package com.example.projectservice;
 
+import com.example.projectservice.config.ProjectConfigParams;
 import com.example.projectservice.entities.Project;
 import com.example.projectservice.repository.ProjectRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @SpringBootApplication
+@EnableConfigurationProperties(ProjectConfigParams.class)
 public class ProjectServiceApplication {
 
     public static void main(String[] args) {
